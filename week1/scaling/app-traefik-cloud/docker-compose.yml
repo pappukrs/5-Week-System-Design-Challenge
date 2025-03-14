@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  node-app:
+    build: .
+    environment:
+      - PORT=3000
+    deploy:
+      replicas: 3
+    labels:
+      - "traefik.http.routers.node-app.rule=Host(`localhost`)"
+      - "traefik.http.services.node-app.loadbalancer.server.port=3000"
+    networks:
+      - app-network
+
+  traefik:
+    image: traefik:v2.9
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080" # Traefik dashboard
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - app-network
+
+networks:
+  app-network:

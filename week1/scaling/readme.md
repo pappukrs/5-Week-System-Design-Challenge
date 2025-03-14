@@ -238,3 +238,18 @@ AWS will now automatically scale your app!
 - **Use Kubernetes & AWS for Auto-Scaling** 🚀
 
 Which method would you like to try first? Let me know if you need help! 😊
+
+
+
+
+
+
+
+
+✅ Summary
+Load Balancer	Features	Setup Difficulty
+Nginx	Simple, good for HTTP load balancing	Easy
+HAProxy	High performance, used in production	Moderate
+Traefik	Cloud-native, automatic service discovery	Easy
+Envoy	Advanced service mesh, supports gRPC	Complex
+🚀 Now you have three different load balancer options! Which one do you like best? 😃
