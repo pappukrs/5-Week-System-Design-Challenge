@@ -1,5 +1,13 @@
-node_modules
+# Ignore all node_modules folders
+node_modules/
+
+# Ignore all package-lock.json files
 package-lock.json
 
-week1/scaling/app-cluster/node_modules
+# Ignore specific subdirectories
+week1/scaling/app-cluster/node_modules/
 week1/scaling/app-cluster/package-lock.json
+
+# Ignore node_modules and package-lock.json in any subdirectory of week1/scaling
+week1/scaling/**/node_modules/
+week1/scaling/**/package-lock.json
