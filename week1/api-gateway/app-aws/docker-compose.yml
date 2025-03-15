@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  localstack:
+    image: localstack/localstack
+    environment:
+      - SERVICES=apigateway
+    ports:
+      - "4566:4566"
+    networks:
+      - aws-net
+
+  node-api:
+    build: ./node-api
+    networks:
+      - aws-net
+
+networks:
+  aws-net:
+    driver: bridge
