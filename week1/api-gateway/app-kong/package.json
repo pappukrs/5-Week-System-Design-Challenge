@@ -1,0 +1,17 @@
+{
+  "name": "app-kong",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node-api/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "app-kong": "file:",
+    "express": "^4.21.2"
+  }
+}
