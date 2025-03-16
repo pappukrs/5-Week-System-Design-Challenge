@@ -1,0 +1,16 @@
+{
+  "name": "reverse-proxy",
+  "version": "1.0.0",
+  "main": "reverse-proxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node reverse-proxy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "reverse-proxy": "file:"
+  }
+}
