@@ -917,6 +917,5 @@ Optimize images & cache static assets with Nginx.
 
 ---
 
-Would you like additional hands-on projects or real-world case studies? 😊
 
 
