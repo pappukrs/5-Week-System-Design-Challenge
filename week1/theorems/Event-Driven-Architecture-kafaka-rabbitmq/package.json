@@ -1,0 +1,17 @@
+{
+  "name": "event-driven-architecture-kafaka-rabbitmq",
+  "version": "1.0.0",
+  "main": "kafkaConsumer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "amqplib": "^0.10.5",
+    "express": "^4.21.2",
+    "kafka-node": "^5.0.0"
+  }
+}
