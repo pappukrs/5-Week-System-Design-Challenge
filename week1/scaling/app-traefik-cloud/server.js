@@ -1,25 +1,15 @@
-version: "3"
+const express = require('express');
+const app = express();
 
-services:
-  node-app:
-    build: .
-    environment:
-      - PORT=3000
-    deploy:
-      replicas: 3  # Run 3 instances
-    networks:
-      - app-network
 
-  haproxy:
-    image: haproxy:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-    depends_on:
-      - node-app
-    networks:
-      - app-network
+const PORT = process.env.PORT || 4000; 
 
-networks:
-  app-network:
+
+app.get('/', (req, res) => { 
+    res.send(`Handled by worker: ${process.pid}\n`);    
+}       
+);
+
+app.listen(PORT, () => {
+    console.log(`Server running on port 4000 - PID: ${process.pid}`);
+});
