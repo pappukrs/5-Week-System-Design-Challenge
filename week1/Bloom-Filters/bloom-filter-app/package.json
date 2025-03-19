@@ -1,5 +1,5 @@
 {
-  "name": "cqrs",
+  "name": "bloom-filter-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cqrs": "file:"
+    "bloom-filter-app": "file:",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
   }
 }

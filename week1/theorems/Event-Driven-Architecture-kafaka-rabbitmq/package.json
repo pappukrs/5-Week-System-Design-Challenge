@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "amqplib": "^0.10.5",
+    "event-driven-architecture-kafaka-rabbitmq": "file:",
     "express": "^4.21.2",
     "kafka-node": "^5.0.0"
   }
