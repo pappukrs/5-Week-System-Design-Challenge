@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  backend1:
+    build: ./backend
+    container_name: backend1
+    restart: always
+    networks:
+      - app-network
+    environment:
+      - PORT=3000
+      - REDIS_URL=redis://redis:6379
+
+  backend2:
+    build: ./backend
+    container_name: backend2
+    restart: always
+    networks:
+      - app-network
+    environment:
+      - PORT=3000
+      - REDIS_URL=redis://redis:6379
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - backend1
+      - backend2
+    networks:
+      - app-network
+
+  kong:
+    image: kong:latest
+    container_name: kong
+    environment:
+      - KONG_DATABASE=off
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    networks:
+      - app-network
+    depends_on:
+      - nginx
+
+networks:
+  app-network:
+    driver: bridge
